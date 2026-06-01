@@ -1,13 +1,13 @@
 [
   {
     "n": 1,
-    "pct": 0,
-    "estado": "Pendiente"
+    "pct": 100,
+    "estado": "Finalizado"
   },
   {
     "n": 2,
-    "pct": 0,
-    "estado": "Pendiente"
+    "pct": 100,
+    "estado": "Finalizado"
   },
   {
     "n": 3,
