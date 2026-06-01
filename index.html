@@ -340,23 +340,33 @@ function setStatus(msg,cls=""){
   el.textContent=msg; el.className="sync-status "+(cls||"");
 }
 
+async function fetchSHA(){
+  try{
+    const token=getToken();
+    const headers={"Accept":"application/vnd.github+json"};
+    if(token) headers["Authorization"]="token "+token;
+    const res=await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${DATA_FILE}`,{headers});
+    if(res.ok){const j=await res.json();fileSHA=j.sha;}
+  }catch(e){}
+}
+
 async function pullFromGitHub(){
   setStatus("⟳ Cargando datos desde GitHub...","loading");
   try{
-    const url=`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${DATA_FILE}?ref=${BRANCH}&t=${Date.now()}`;
-    const res=await fetch(url,{headers:{"Accept":"application/vnd.github+json"}});
+    const rawUrl=`https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/${DATA_FILE}?t=${Date.now()}`;
+    const res=await fetch(rawUrl);
     if(res.status===404){
       setStatus("⚠ Sin datos previos — usa ⬆ Guardar para inicializar","");
+      await fetchSHA();
       return;
     }
     if(!res.ok) throw new Error("HTTP "+res.status);
-    const json=await res.json();
-    fileSHA=json.sha;
-    const data=JSON.parse(atob(json.content.replace(/\n/g,"")));
+    const data=await res.json();
     data.forEach(d=>{
       const t=tasks.find(x=>x.n===d.n);
       if(t){t.pct=d.pct;t.estadoLocal=d.estado;}
     });
+    await fetchSHA();
     setStatus("✓ Datos cargados","ok");
     document.getElementById("lastSync").textContent=new Date().toLocaleTimeString("es-CL");
     renderTable(); renderStats();
