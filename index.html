@@ -226,7 +226,7 @@ const REPO_NAME  = "gantt-lurgi-2026";
 const DATA_FILE  = "data.json";
 const BRANCH     = "main";
 const TOKEN_KEY  = "gh_admin_token_lurgi";
-const TODAY      = new Date("2026-06-01");
+const TODAY      = new Date(2026, 5, 1); // mes 5 = junio (0-indexed), sin UTC
 // ──────────────────────────────────────────────────────────────────────────
 
 const TASKS_RAW = [
@@ -421,7 +421,11 @@ function saveToken(){
 }
 
 // ── RENDER ─────────────────────────────────────────────────────────────────
-const pd=s=>s?new Date(s):null;
+const pd=s=>{
+  if(!s) return null;
+  const [y,m,d]=s.split("-").map(Number);
+  return new Date(y,m-1,d);
+};
 const allFinD=tasks.flatMap(t=>[pd(t.fin)]).filter(Boolean);
 const minD=new Date(TODAY); minD.setDate(minD.getDate()-1);
 const maxD=new Date(Math.max(...allFinD)); maxD.setDate(maxD.getDate()+2);
