@@ -91,12 +91,12 @@
   },
   {
     "n": 19,
-    "pct": 0,
-    "estado": "Pendiente"
+    "pct": 100,
+    "estado": "Finalizado"
   },
   {
     "n": 20,
-    "pct": 0,
+    "pct": 30,
     "estado": "Pendiente"
   },
   {
@@ -106,8 +106,8 @@
   },
   {
     "n": 22,
-    "pct": 0,
-    "estado": "Pendiente"
+    "pct": 100,
+    "estado": "Finalizado"
   },
   {
     "n": 23,
