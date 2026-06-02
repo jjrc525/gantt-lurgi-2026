@@ -226,7 +226,7 @@ const REPO_NAME  = "gantt-lurgi-2026";
 const DATA_FILE  = "data.json";
 const BRANCH     = "main";
 const TOKEN_KEY  = "gh_admin_token_lurgi";
-const TODAY      = new Date(2026, 5, 1); // mes 5 = junio (0-indexed), sin UTC
+const TODAY      = (() => { const d = new Date(); return new Date(d.getFullYear(), d.getMonth(), d.getDate()); })(); // fecha real del sistema
 // ──────────────────────────────────────────────────────────────────────────
 
 const TASKS_RAW = [
