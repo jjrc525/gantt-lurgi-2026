@@ -196,7 +196,7 @@
   },
   {
     "n": 40,
-    "pct": 0,
+    "pct": 20,
     "estado": "Pendiente"
   },
   {
@@ -251,8 +251,8 @@
   },
   {
     "n": 51,
-    "pct": 0,
-    "estado": "Rechazado"
+    "pct": 50,
+    "estado": "Pendiente"
   },
   {
     "n": 52,
