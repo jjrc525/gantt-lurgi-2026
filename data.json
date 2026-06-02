@@ -81,7 +81,7 @@
   },
   {
     "n": 17,
-    "pct": 0,
+    "pct": 50,
     "estado": "Pendiente"
   },
   {
@@ -91,8 +91,8 @@
   },
   {
     "n": 19,
-    "pct": 0,
-    "estado": "Pendiente"
+    "pct": 100,
+    "estado": "Finalizado"
   },
   {
     "n": 20,
