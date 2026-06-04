@@ -232,6 +232,341 @@ const TODAY      = (() => { const d = new Date(); return new Date(d.getFullYear(
 const TASKS_RAW = [
   {n:1,eq:"Insumos varios",tema:"Insumos varios para mantención LURGI",planta:"LURGI",tipo:"Administrativo",tec:"C.Ceballos/S.Manzo/D.C.",ot:"",ini:null,fin:null,estado:"Pendiente",pctInicial:0},
   {n:2,eq:"Lavado Desodorizador",tema:"Instalación cañería y conexión bomba eléctricamente. Mantención preventiva bomba.",planta:"LURGI",tipo:"Eléctrico",tec:"P.Campo / Elec.Turno",ot:"OT 4277",ini:"2026-06-01",fin:"2026-06-01",estado:"Finalizado",pctInicial:100},
+  {n:3,eq:"Lavado Desodorizador",tema:"Lavado de Equipo (Producción)",planta:"LURGI",tipo:"Producción",tec:"Producción",ot:"",ini:"2026-06-01",fin:"2026-06-03",estado:"Finalizado",pctInicial:100},
+  {n:"3b",eq:"Bombas / Motores",tema:"Instalación de etiqueta de equipos para desmontaje y montaje",planta:"LURGI",tipo:"Mecánico",tec:"P.Campo",ot:"OT 4158",ini:"2026-05-22",fin:"2026-05-22",estado:"Finalizado",pctInicial:100},
+  {n:4,eq:"Bombas / Motores",tema:"Desmontaje de Motores y Bombas (Lavado por Servicio)",planta:"LURGI",tipo:"Eléctrico/Mecánico",tec:"G.E.-N.B.+2 / A.Ewert",ot:"OT 4278",ini:"2026-06-01",fin:"2026-06-04",estado:"Pendiente",pctInicial:90},
+  {n:5,eq:"Bombas / Motores",tema:"Mantención de Motores y Bombas — Sehinco / Cotizar equipos nuevos",planta:"LURGI",tipo:"Eléctrico/Mecánico",tec:"Sehinco",ot:"OT 4280",ini:"2026-06-01",fin:"2026-06-07",estado:"Pendiente",pctInicial:0},
+  {n:6,eq:"Bombas / Motores",tema:"Montaje y conexión de motores y bombas",planta:"LURGI",tipo:"Eléctrico/Mecánico",tec:"G.E.-N.B.+2",ot:"OT 4278",ini:"2026-06-04",fin:"2026-06-07",estado:"Pendiente",pctInicial:0},
+  {n:7,eq:"Torre Enf. Tecnofiber N°2",tema:"Desmontaje y montaje de motoventilador",planta:"LURGI",tipo:"Eléctrico/Mecánico",tec:"Gabriel E. / Nicolas B.",ot:"OT 3347",ini:"2026-05-15",fin:"2026-05-15",estado:"Finalizado",pctInicial:100},
+  {n:8,eq:"Torre Enf. Tecnofiber N°2",tema:"Limpieza y Mantención (1 CUERPO) — Induclean",planta:"LURGI",tipo:"Limpieza Química",tec:"Induclean",ot:"OT 4281",ini:"2026-06-04",fin:"2026-06-06",estado:"Pendiente",pctInicial:35},
+  {n:9,eq:"Torre Enf. Tecnofiber N°2",tema:"Revestimiento piso piscina acumuladora — Diproplas (6 días)",planta:"LURGI",tipo:"Limpieza Química",tec:"Diproplas",ot:"",ini:null,fin:null,estado:"Rechazado",pctInicial:0},
+  {n:10,eq:"Torre Enf. Tecnofiber N°2",tema:"Cambio de boya (plástica) y válvula de corte",planta:"LURGI",tipo:"Mecánico",tec:"Mec. Turno",ot:"OT 4279",ini:"2026-06-06",fin:"2026-06-06",estado:"Pendiente",pctInicial:0},
+  {n:11,eq:"Torre Enf. Tecnofiber N°1",tema:"Desmontaje y montaje de motoventiladores — Maniobra Grúa Pluma 50 Ton.",planta:"LURGI",tipo:"Eléctrico/Mecánico",tec:"G.E.-N.B.+2",ot:"OT 4280",ini:"2026-06-03",fin:"2026-06-05",estado:"Pendiente",pctInicial:50},
+  {n:12,eq:"Torre Enf. Tecnofiber N°1",tema:"Pintar soportaciones de motoventiladores",planta:"LURGI",tipo:"Obra Civil",tec:"Medina",ot:"OT 4283",ini:"2026-06-04",fin:"2026-06-04",estado:"Pendiente",pctInicial:0},
+  {n:13,eq:"Torre Enf. Tecnofiber N°1",tema:"Limpieza y Mantención (4 CUERPOS) — Induclean",planta:"LURGI",tipo:"Limpieza Química",tec:"Induclean",ot:"OT 4284",ini:"2026-06-04",fin:"2026-06-06",estado:"Pendiente",pctInicial:35},
+  {n:14,eq:"Torre Enf. Tecnofiber N°1",tema:"Revestimiento piso piscina acumuladora — Diproplas (6 días)",planta:"LURGI",tipo:"Limpieza Química",tec:"Diproplas",ot:"",ini:null,fin:null,estado:"Rechazado",pctInicial:0},
+  {n:15,eq:"Torre Enf. Tecnofiber N°1",tema:"Cambio de boya (plástica) y válvula de corte",planta:"LURGI",tipo:"Mecánico",tec:"Mec. Turno",ot:"OT 4337",ini:"2026-06-06",fin:"2026-06-06",estado:"Pendiente",pctInicial:0},
+  {n:16,eq:"Condensadores Evap. Winter-Lurgi",tema:"Mantenimiento interno: lavado químico, reparación y/o restauración de infraestructura",planta:"LURGI/WINTER",tipo:"Mecánico",tec:"Colina",ot:"OT 4338",ini:"2026-06-04",fin:"2026-06-06",estado:"Pendiente",pctInicial:0},
+  {n:17,eq:"Compresor NH3 N160 - Winter",tema:"Retiro sistema inundado / Inst. u-turn / Montaje motor y VDF N160 / Canalización tablero / Modificación línea succión / Puesta en Marcha",planta:"WINTER",tipo:"Proyecto",tec:"Varios",ot:"OT 4139",ini:"2026-06-01",fin:"2026-06-09",estado:"Pendiente",pctInicial:80},
+  {n:18,eq:"Compresor NH3 N200 - Lurgi",tema:"Instalación purgador gases no condensables / Instalación enfriador aceite N200 / Puesta en Marcha — TECNICAL SERVICE",planta:"LURGI",tipo:"Proyecto",tec:"Varios",ot:"OT 4139",ini:"2026-06-01",fin:"2026-06-09",estado:"Pendiente",pctInicial:80},
+  {n:19,eq:"Compresor NH3 W-L",tema:"Escáner con ultrasonido a soldaduras",planta:"LURGI/WINTER",tipo:"Proyecto",tec:"CyL",ot:"OT 4139",ini:"2026-06-08",fin:"2026-06-08",estado:"Finalizado",pctInicial:100},
+  {n:20,eq:"Bombas Vacío Lobulares",tema:"Mantención bombas vacío: Pfeiffer OKTA 1000 (2), Sihi 385-386-G309 (3), Aerzen Grande (2), Bock & Edward chica antigua (1), Aerzen chica nueva (2), Bock & Edward antigua (1)",planta:"LURGI",tipo:"Mecánico",tec:"E.Ubilla / S.Manzo / P.Campos",ot:"OT 4339",ini:"2026-06-01",fin:"2026-06-07",estado:"Pendiente",pctInicial:50},
+  {n:21,eq:"Bombas Vacío Lobulares",tema:"Apertura de Ramales circuito vacío: Limpiezas de líneas",planta:"LURGI",tipo:"Mecánico",tec:"P.Campo",ot:"OT 4340",ini:"2026-06-04",fin:"2026-06-05",estado:"Finalizado",pctInicial:100},
+  {n:22,eq:"Bombas Vacío Lobulares",tema:"Instalación de tecle eléctrico",planta:"LURGI",tipo:"Obra Civil",tec:"Medina",ot:"OT 4341",ini:"2026-06-01",fin:"2026-06-01",estado:"Finalizado",pctInicial:100},
+  {n:23,eq:"Bomba Anillo Líquido",tema:"Cambio válvula retención bombas 385, 386 y G-309. Revisión y limpieza circuito alimentación y estanque",planta:"LURGI",tipo:"Mecánico",tec:"P.Campo / N.Beiza",ot:"OT 4336",ini:"2026-06-01",fin:"2026-06-07",estado:"Finalizado",pctInicial:100},
+  {n:24,eq:"Bombas de Vacío",tema:"Ramal de bombas — Revisión y/o cambio válvula mariposa 8\" manuales",planta:"LURGI",tipo:"Mecánico",tec:"J.T. / N.C.",ot:"OT 4342",ini:"2026-06-01",fin:"2026-06-07",estado:"Finalizado",pctInicial:100},
+  {n:25,eq:"Bombas de Vacío",tema:"Ramal de bombas — Cambio válvula mariposa 3\" manuales",planta:"LURGI",tipo:"Mecánico",tec:"E.Ubilla",ot:"",ini:"2026-04-21",fin:"2026-04-21",estado:"Finalizado",pctInicial:100},
+  {n:26,eq:"Intercambiador E-301",tema:"Lavado CIP por ambos lados — Tecno In / MT Calor",planta:"LURGI",tipo:"Producción",tec:"Tecno In / MT Calor",ot:"",ini:null,fin:null,estado:"Rechazado",pctInicial:0},
+  {n:27,eq:"Intercambiador E-303",tema:"Lavado CIP por ambos lados — Tecno In / MT Calor",planta:"LURGI",tipo:"Producción",tec:"Tecno In / MT Calor",ot:"",ini:null,fin:null,estado:"Rechazado",pctInicial:0},
+  {n:28,eq:"Intercambiador E-302",tema:"Lavado CIP por ambos lados — Tecno In / MT Calor",planta:"LURGI",tipo:"Producción",tec:"Tecno In / MT Calor",ot:"",ini:null,fin:null,estado:"Rechazado",pctInicial:0},
+  {n:29,eq:"Intercambiador E-302",tema:"Reparación y/o fabricación de base con corrosión",planta:"LURGI",tipo:"Obra Civil",tec:"Medina",ot:"OT 4344",ini:"2026-06-03",fin:"2026-06-07",estado:"Pendiente",pctInicial:50},
+  {n:30,eq:"Intercambiador Winter",tema:"Lavado CIP por ambos lados — Tecno In / MT Calor",planta:"WINTER",tipo:"Producción",tec:"Tecno In / MT Calor",ot:"",ini:null,fin:null,estado:"Rechazado",pctInicial:0},
+  {n:31,eq:"Intercamb. Romana 400",tema:"Instalación equipo Alfa Laval M10B",planta:"LURGI",tipo:"Soldadura",tec:"Equipo Soldadura",ot:"",ini:null,fin:null,estado:"Rechazado",pctInicial:0},
+  {n:32,eq:"Cuadro Principal Vapores",tema:"Revisión y/o cambio de componentes por fugas",planta:"LURGI",tipo:"Sistema vapor",tec:"Juan G. / Lukas T.",ot:"OT 4345",ini:"2026-06-01",fin:"2026-06-07",estado:"Finalizado",pctInicial:100},
+  {n:33,eq:"Cuadro Principal Vapores",tema:"Mantención de válvula reguladora 25P",planta:"LURGI",tipo:"Sistema vapor",tec:"Juan G. / Lukas T.",ot:"OT 4346",ini:"2026-06-01",fin:"2026-06-07",estado:"Pendiente",pctInicial:0},
+  {n:34,eq:"Manifold Condensados N°1 y N°2",tema:"Conectar manifold con línea principal de condensado",planta:"LURGI",tipo:"Sistema vapor",tec:"Juan G. / Lukas T.",ot:"OT 4343",ini:"2026-06-01",fin:"2026-06-07",estado:"Pendiente",pctInicial:20},
+  {n:35,eq:"Filtros GAF",tema:"Lavado y limpieza Filtros GAF 1er piso Lurgi (A.Ewert) + Cambio empaquetaduras y pernos (Mec. Turno)",planta:"LURGI",tipo:"Mecánico",tec:"A.Ewert / Mec.Turno",ot:"OT 4347",ini:"2026-06-08",fin:"2026-06-08",estado:"Pendiente",pctInicial:0},
+  {n:36,eq:"Compresor N200 VLD",tema:"Desmontaje y montaje de motor eléctrico",planta:"LURGI",tipo:"Mecánico/Eléctrico",tec:"G.E.-N.B.+2 / Technical",ot:"OT 4278",ini:"2026-06-01",fin:"2026-06-07",estado:"Pendiente",pctInicial:50},
+  {n:37,eq:"Compresor N200 VLD",tema:"Mantención de motor eléctrico — Sehinco",planta:"LURGI",tipo:"Mecánico/Eléctrico",tec:"Sehinco",ot:"OT 4280",ini:"2026-06-01",fin:"2026-06-06",estado:"Pendiente",pctInicial:0},
+  {n:38,eq:"Compresor N200 VLD",tema:"Alineación laser de motor eléctrico — Sehinco",planta:"LURGI",tipo:"Mecánico/Eléctrico",tec:"Sehinco",ot:"OT 4280",ini:"2026-06-06",fin:"2026-06-06",estado:"Pendiente",pctInicial:0},
+  {n:39,eq:"Compresor N200 VLD",tema:"Mantención tablero compresor N200 VLD (climatización) — Fast Cool",planta:"LURGI",tipo:"Climatización",tec:"Fast Cool",ot:"OT 4348",ini:"2026-06-03",fin:"2026-06-03",estado:"Finalizado",pctInicial:100},
+  {n:40,eq:"Tablero Comp. Amoniaco N200",tema:"Mantención compresor N200 VLD: tablero eléctrico, cambio de aceite, entre otros. Cód: TDEE1004-TDEE1071-TDEE1072-TDFE1125",planta:"LURGI",tipo:"Eléctrico",tec:"D.B. / S.C. / Technical",ot:"OT 4349",ini:"2026-06-01",fin:"2026-06-07",estado:"Pendiente",pctInicial:50},
+  {n:41,eq:"Sistema Atlas",tema:"Revisión y/o cambio válvula mariposa 8\": PV 351 / PV 353 / PV-352",planta:"LURGI",tipo:"Eléctrico/Mecánico",tec:"Gabriel E. / Daniel B.",ot:"OT 4350",ini:"2026-06-01",fin:"2026-06-07",estado:"Pendiente",pctInicial:0},
+  {n:42,eq:"Sistema Atlas",tema:"Cambio válvula mariposa 5\": FV 451 / FV 452 / FV 453 / FV 456",planta:"LURGI",tipo:"Eléctrico/Mecánico",tec:"Gabriel E. / Daniel B.",ot:"OT 4351",ini:"2026-06-01",fin:"2026-06-07",estado:"Finalizado",pctInicial:100},
+  {n:43,eq:"Sistema Atlas",tema:"Válvula mariposa 2\" descarga tacho De-icing",planta:"LURGI",tipo:"Mecánico",tec:"Gabriel E. / Daniel B.",ot:"OT 4352",ini:"2026-06-01",fin:"2026-06-07",estado:"Pendiente",pctInicial:0},
+  {n:44,eq:"Sistema Atlas",tema:"Cambio del kit de válvulas de seguridad",planta:"LURGI",tipo:"Producción",tec:"Producción",ot:"OT 4353",ini:"2026-06-03",fin:"2026-06-06",estado:"Pendiente",pctInicial:0},
+  {n:45,eq:"Apertura Portalones",tema:"Apertura y cierre de portalones del Lurgi",planta:"LURGI",tipo:"Mecánico",tec:"Cesar V. / Dioangel L.",ot:"OT 4354",ini:"2026-06-02",fin:"2026-06-02",estado:"Pendiente",pctInicial:50},
+  {n:46,eq:"Etapa 1→2 / F-301",tema:"Desmontaje y montaje de válvula de bola que presenta filtración",planta:"LURGI",tipo:"Mecánico",tec:"E.U. / P.C. + 1 Ext.",ot:"OT 4355",ini:"2026-06-04",fin:"2026-06-07",estado:"Pendiente",pctInicial:0},
+  {n:47,eq:"Etapa 1→2 / F-301",tema:"Cambio kit empaquetaduras y trabajo de soldadura para rectificar daños en bola inoxidable",planta:"LURGI",tipo:"Mecánico",tec:"E.U. / SQ Templo",ot:"OT 4356",ini:"2026-06-04",fin:"2026-06-06",estado:"Pendiente",pctInicial:0},
+  {n:48,eq:"Etapa F-301 (1→6)",tema:"Revisión y/o reparación costuras de soldadura, incluye revisión bombas Mamut",planta:"LURGI",tipo:"Soldadura",tec:"J.G. / Gustavo + 1 Sold.",ot:"OT 4357",ini:"2026-06-04",fin:"2026-06-06",estado:"Pendiente",pctInicial:0},
+  {n:49,eq:"Etapa F-301 (1→6)",tema:"Revisión, reparación y/o cambio de luces visores",planta:"LURGI",tipo:"Eléctrico",tec:"Elec. Turno",ot:"OT 4358",ini:"2026-06-04",fin:"2026-06-04",estado:"Pendiente",pctInicial:0},
+  {n:50,eq:"Etapa F-301 (1→6)",tema:"Revisión, cambio y/o reparación de aislación térmica del estanque — Sasinca",planta:"LURGI",tipo:"Aislación térmica",tec:"Sasinca",ot:"OT 4360",ini:"2026-06-03",fin:"2026-06-06",estado:"Pendiente",pctInicial:0},
+  {n:51,eq:"Sist. Enfriamiento Descarga",tema:"Retiro y calibración válvula Masoneilan TV-309 — RPM Control",planta:"LURGI",tipo:"Instrumentación",tec:"RPM Control",ot:"",ini:"2026-06-01",fin:"2026-06-01",estado:"Pendiente",pctInicial:50},
+  {n:52,eq:"Tableros RST1TE111-123",tema:"Limpieza, re-apriete y orden. Cambio de filtros",planta:"LURGI",tipo:"Eléctrico",tec:"S.Cuadra / D.B.",ot:"",ini:null,fin:null,estado:"Rechazado",pctInicial:0},
+  {n:53,eq:"Tableros RST1TE116-155",tema:"Limpieza, re-apriete y orden. Cambio de filtros",planta:"LURGI",tipo:"Eléctrico",tec:"S.Cuadra / D.B.",ot:"",ini:null,fin:null,estado:"Rechazado",pctInicial:0},
+  {n:54,eq:"Tableros RST1TE152-174",tema:"Limpieza, re-apriete y orden. Cambio de filtros",planta:"LURGI",tipo:"Eléctrico",tec:"S.Cuadra / D.B.",ot:"",ini:null,fin:null,estado:"Rechazado",pctInicial:0},
+  {n:55,eq:"Tablero Caldera Geka",tema:"Limpieza, re-apriete y orden. Cambio de filtros. Cód: TDEE1057",planta:"LURGI",tipo:"Eléctrico",tec:"S.Cuadra / D.B.",ot:"OT 4361",ini:"2026-06-02",fin:"2026-06-02",estado:"Finalizado",pctInicial:100},
+  {n:56,eq:"Tablero Comp. N160",tema:"Limpieza, re-apriete y orden. Cambio de filtros. Cód: TDEE1070",planta:"WINTER",tipo:"Eléctrico",tec:"S.Cuadra / D.B.",ot:"OT 4362",ini:"2026-06-03",fin:"2026-06-05",estado:"Pendiente",pctInicial:0},
+  {n:57,eq:"Luminarias",tema:"Revisión, reparación y/o cambio",planta:"LURGI",tipo:"Eléctrico",tec:"N.Norambuena",ot:"OT 4363",ini:"2026-06-01",fin:"2026-06-07",estado:"Pendiente",pctInicial:80},
+  {n:58,eq:"Sensores Temp. Etapas",tema:"Revisión, reparación y/o cambio",planta:"LURGI",tipo:"Instrumentación",tec:"D.Bejarano",ot:"OT 4364",ini:"2026-06-01",fin:"2026-06-07",estado:"Pendiente",pctInicial:100},
+  {n:59,eq:"Sensores de Vacío",tema:"Revisión, reparación y/o cambio",planta:"LURGI",tipo:"Instrumentación",tec:"D.Bejarano",ot:"OT 4365",ini:"2026-06-02",fin:"2026-06-07",estado:"Pendiente",pctInicial:0},
+  {n:60,eq:"Sensor De-icing",tema:"Revisión, reparación y/o cambio",planta:"LURGI",tipo:"Instrumentación",tec:"D.Bejarano",ot:"OT 4366",ini:"2026-06-03",fin:"2026-06-07",estado:"Pendiente",pctInicial:0},
+  {n:61,eq:"Sensores de Nivel",tema:"Revisión, reparación y/o cambio",planta:"LURGI",tipo:"Instrumentación",tec:"D.Bejarano",ot:"OT 4367",ini:"2026-06-03",fin:"2026-06-07",estado:"Pendiente",pctInicial:0},
+  {n:62,eq:"Sensor Splash",tema:"Revisión, reparación y/o cambio",planta:"LURGI",tipo:"Instrumentación",tec:"D.Bejarano",ot:"OT 4368",ini:"2026-06-03",fin:"2026-06-07",estado:"Pendiente",pctInicial:0},
+  {n:63,eq:"Sensor Scrubber",tema:"Revisión, reparación y/o cambio",planta:"LURGI",tipo:"Instrumentación",tec:"D.Bejarano",ot:"OT 4369",ini:"2026-06-03",fin:"2026-06-07",estado:"Pendiente",pctInicial:0},
+  {n:64,eq:"Sensor Dos. Ác. Cítrico",tema:"Revisión, reparación y/o cambio",planta:"LURGI",tipo:"Instrumentación",tec:"D.Bejarano",ot:"OT 4370",ini:"2026-06-03",fin:"2026-06-07",estado:"Pendiente",pctInicial:0},
+  {n:65,eq:"Sensor Etapa 4",tema:"Revisión, reparación y/o cambio",planta:"LURGI",tipo:"Instrumentación",tec:"D.Bejarano",ot:"OT 4371",ini:"2026-06-03",fin:"2026-06-07",estado:"Pendiente",pctInicial:0},
+  {n:66,eq:"Sensor Caldera Geka",tema:"Limpieza sensores de nivel + PT-100 + Llama",planta:"LURGI",tipo:"Instrumentación",tec:"D.Bejarano",ot:"OT 4372",ini:"2026-06-03",fin:"2026-06-07",estado:"Pendiente",pctInicial:0},
+  {n:67,eq:"Mantención Romanas",tema:"Reparación Romana 400 y Romana BT-10 (BT-10 parte 09-06) — Pesaje Industrial / D.Bejarano",planta:"LURGI",tipo:"Instrumentación",tec:"Pesaje Ind. / D.Bejarano",ot:"OT 4373",ini:"2026-06-04",fin:"2026-06-05",estado:"Pendiente",pctInicial:0},
+  {n:68,eq:"Calibración Romanas WFT-600",tema:"Calibración Tolva pesaje B.Continuo, Balanza Carbón y Ácido Cítrico, Romana 400 y BT-10",planta:"REFINERÍA",tipo:"Instrumentación",tec:"Pesaje Ind. / D.Bejarano",ot:"Plan Prev.",ini:"2026-06-04",fin:"2026-06-05",estado:"Pendiente",pctInicial:0},
+  {n:69,eq:"Mantenimiento UPS",tema:"Levantamiento de estado por UPS — ver si requiere mantención y/o cambio (realizado Feb 2026)",planta:"LURGI",tipo:"Eléctrico",tec:"Kolff / D.B.",ot:"",ini:null,fin:null,estado:"Finalizado",pctInicial:100},
+  {n:70,eq:"Revestimiento Piso",tema:"Reparación 3° piso sala de químico, cambio de planchas diamantadas",planta:"REFINERÍA",tipo:"Obra Civil",tec:"Por confirmar",ot:"",ini:null,fin:null,estado:"Rechazado",pctInicial:0},
+  {n:71,eq:"Revestimiento Piso",tema:"Reparación 2° piso al costado del tecle, cambio de planchas diamantadas",planta:"REFINERÍA",tipo:"Obra Civil",tec:"Por confirmar",ot:"",ini:null,fin:null,estado:"Rechazado",pctInicial:0},
+  {n:72,eq:"Revestimiento Piso",tema:"Revestir y nivelar 1er piso de refinería con resina epóxica — GARANTÍA (Cunha)",planta:"REFINERÍA",tipo:"Obra Civil",tec:"Cunha",ot:"OT 4374",ini:"2026-06-05",fin:"2026-06-07",estado:"Pendiente",pctInicial:0},
+  {n:73,eq:"Revestimiento Piso",tema:"Revestimiento piso piscina derrame de químicos 3° piso",planta:"REFINERÍA",tipo:"Obra Civil",tec:"Por cotizar",ot:"",ini:null,fin:null,estado:"Rechazado",pctInicial:0},
+  {n:74,eq:"Levantamiento de Glicol",tema:"Cambio de líneas y limpieza de estanque de Glicol",planta:"REFINERÍA",tipo:"Soldadura",tec:"Por confirmar",ot:"",ini:null,fin:null,estado:"Rechazado",pctInicial:0},
+  {n:75,eq:"Calderas Loos",tema:"Cambio de prensas estopas en manifold principal de válvulas",planta:"CALDERA",tipo:"Mecánico",tec:"D.Veloz",ot:"OT 4375",ini:"2026-06-03",fin:"2026-06-06",estado:"Pendiente",pctInicial:0},
+  {n:76,eq:"Sistema de Calefacción",tema:"Instalar línea de calefacción, descarga de bomba Teikoku",planta:"LURGI",tipo:"Aislación térmica",tec:"Juan G. + 1",ot:"OT 4376",ini:"2026-06-01",fin:"2026-06-07",estado:"Finalizado",pctInicial:100},
+  {n:77,eq:"Línea Agua Recirc. Torre",tema:"Filtración de línea principal de 6\" y línea de retorno de 3\" (Intercambiador E-301)",planta:"LURGI",tipo:"Soldadura",tec:"Gustavo R. + 1",ot:"OT 4377",ini:"2026-06-03",fin:"2026-06-07",estado:"Pendiente",pctInicial:0},
+  {n:78,eq:"Flujómetros Winterización",tema:"Instalación de Flujómetro + fabricación de 2 carretillas",planta:"WINTER",tipo:"Mecánico/Soldadura",tec:"Gustavo R. / Camilo B.",ot:"OT 4378",ini:"2026-06-01",fin:"2026-06-02",estado:"Finalizado",pctInicial:100},
+  {n:79,eq:"Pasaje Amasina",tema:"Reparación de filtración de agua de pasaje Amasina — Medina",planta:"REFINERÍA",tipo:"Soldadura",tec:"Medina",ot:"OT 4379",ini:"2026-06-03",fin:"2026-06-04",estado:"Pendiente",pctInicial:0},
+  {n:80,eq:"Estanque Agua 3° Piso",tema:"Limpieza e instalación de portalón",planta:"REFINERÍA",tipo:"Soldadura",tec:"Por confirmar",ot:"",ini:null,fin:null,estado:"Rechazado",pctInicial:0},
+  {n:81,eq:"Sala Control Refinería",tema:"Instalación de pisos, cambio de cielo y termopaneles, muebles y escritorios — OIC",planta:"REFINERÍA",tipo:"Obra Civil",tec:"OIC",ot:"OT 4380",ini:"2026-06-03",fin:"2026-06-04",estado:"Pendiente",pctInicial:50},
+  {n:82,eq:"Sala Control Refinería",tema:"Retiro de aire acondicionado e instalación de equipo nuevo — Fast Cool",planta:"REFINERÍA",tipo:"Climatización",tec:"Fast Cool",ot:"OT 4380",ini:"2026-06-03",fin:"2026-06-03",estado:"Pendiente",pctInicial:50},
+  {n:83,eq:"Edificio Refinería",tema:"Fabricación y montaje de desagüe del 8vo al 1er piso de la Refinería — Medina",planta:"REFINERÍA",tipo:"Soldadura",tec:"Medina",ot:"OT 4382",ini:"2026-06-01",fin:"2026-06-07",estado:"Pendiente",pctInicial:0},
+  {n:84,eq:"Tablero Torre Enf. N°1",tema:"Limpieza, re-apriete y orden. Cambio de filtros. Cód: TDFC1038",planta:"LURGI",tipo:"Eléctrico",tec:"S.Cuadra / D.B.",ot:"OT 3999",ini:"2026-06-02",fin:"2026-06-02",estado:"Pendiente",pctInicial:0},
+  {n:85,eq:"Calderas Loos",tema:"Revisión de filtración de agua del Economizer — Rompeltien",planta:"CALDERA",tipo:"Soldadura",tec:"Rompeltien",ot:"OT 4191",ini:"2026-06-04",fin:"2026-06-04",estado:"Pendiente",pctInicial:0},
+  {n:86,eq:"Sensores de Vacío",tema:"Realizar Cableado de las URIS hasta los Sensores de Vacío",planta:"LURGI",tipo:"Instrumentación",tec:"D.Bejarano",ot:"OT 4392",ini:"2026-06-01",fin:"2026-06-03",estado:"Pendiente",pctInicial:0},
+  {n:87,eq:"Condensadores Amoniaco",tema:"Kit de inspección ICM-100 — Válvula motorizada ICAD 1200",planta:"LURGI",tipo:"Supervisor Mantt.",tec:"Juan Reyes / S.Manzo",ot:"OT 4393",ini:"2026-06-02",fin:"2026-06-04",estado:"Pendiente",pctInicial:70},
+  {n:88,eq:"Filtración Etapa 6",tema:"Filtración línea de agua a conexión de sexta etapa con intercambiador E-302. Instalación de flanges para inspecciones",planta:"LURGI",tipo:"Soldadura",tec:"SQ Templo",ot:"OT 4394",ini:"2026-06-04",fin:"2026-06-07",estado:"Pendiente",pctInicial:0},
+  {n:89,eq:"Circuito Vapor - Filtros GAF",tema:"Trampas de vapor sin funcionamiento — limpieza y mantenimiento",planta:"LURGI",tipo:"Mecánico",tec:"Juan G.",ot:"OT 4395",ini:"2026-06-02",fin:"2026-06-02",estado:"Finalizado",pctInicial:100},
+  {n:90,eq:"Cuadro Vapor Deicing",tema:"Reguladora de vapor Deicing: mantención, filtración niple entrada, reposición manómetro y soportación",planta:"LURGI",tipo:"Mecánico",tec:"Juan G.",ot:"OT 4396",ini:"2026-06-03",fin:"2026-06-03",estado:"Pendiente",pctInicial:0},
+  {n:91,eq:"Estanque Soda 3° Piso Ref.",tema:"Reemplazo línea alimentación vapor al estanque de soda por circuito con válvula neumática",planta:"WESTFALIA",tipo:"Soldadura",tec:"Antonio Llontón",ot:"OT 4397",ini:"2026-06-04",fin:"2026-06-04",estado:"Finalizado",pctInicial:100},
+  {n:92,eq:"Actuador Neumático 4° Piso",tema:"Corrección de fuga en actuador neumático de válvula tercera etapa Lurgi, cuarto piso",planta:"LURGI",tipo:"Eléctrico",tec:"Elec. Turno",ot:"OT 4399",ini:"2026-06-04",fin:"2026-06-04",estado:"Pendiente",pctInicial:0},
+  {n:93,eq:"Válvula de Bola 3° Piso",tema:"Reparación fuga de producto en válvula tercera etapa Lurgi — reemplazo y ajuste empaquetaduras",planta:"LURGI",tipo:"Mecánico",tec:"Mec. Turno",ot:"OT 4400",ini:"2026-06-04",fin:"2026-06-04",estado:"Pendiente",pctInicial:0},
+  {n:94,eq:"Etapa F-301 (1→6)",tema:"Retiro aislación térmica Etapa 6 hasta F-301 para inspección y detección de rotura en manto o serpentín de vapor",planta:"LURGI",tipo:"Aislación térmica",tec:"Sasinca",ot:"OT 4401",ini:"2026-06-01",fin:"2026-06-02",estado:"Finalizado",pctInicial:100},
+  {n:95,eq:"Eyector Vapor F-301",tema:"Cañería rota en codos bomba F-301. Válvula compuerta filtrando e intercambiador tubo carcasa con filtración de vapor",planta:"LURGI",tipo:"Mecánico",tec:"D.Veloz",ot:"OT 4404",ini:"2026-06-02",fin:"2026-06-03",estado:"Finalizado",pctInicial:100},
+  {n:96,eq:"Cuadro Principal Vapores",tema:"Mejora sistema despiche condensado en trampa termodinámica — Asesoría Spirax Sarco",planta:"LURGI",tipo:"Asesoría",tec:"Spirax Sarco",ot:"N/A",ini:"2026-06-03",fin:"2026-06-03",estado:"Finalizado",pctInicial:100},
+  {n:97,eq:"Filtración Vapor 2° Piso Ref.",tema:"Reparación cañería en codo con filtración de vapores directo segundo piso Refinería",planta:"LURGI",tipo:"Soldadura",tec:"Juan G.",ot:"OT 4430",ini:"2026-06-03",fin:"2026-06-03",estado:"Pendiente",pctInicial:30},
+  {n:98,eq:"Eyector Bombas Vacío",tema:"Apertura y limpieza de eyector saturado",planta:"LURGI",tipo:"Mecánico",tec:"P.Campos",ot:"OT 4431",ini:"2026-06-02",fin:"2026-06-02",estado:"Finalizado",pctInicial:100},
+  {n:99,eq:"Sistema Atlas - Cond. N°1 y N°3",tema:"Inspección y reparación de fuga por rotura en serpentín de amoníaco del Condensador N°1 y N°3",planta:"LURGI",tipo:"Soldadura",tec:"Maintec",ot:"OT 4432",ini:"2026-06-04",fin:"2026-06-06",estado:"Pendiente",pctInicial:0},
+  {n:100,eq:"Ramal Bombas Vacío",tema:"Limpieza de ductos de succión y bombas de vacío",planta:"LURGI",tipo:"Mecánico",tec:"J.T. / N.C.",ot:"OT 4433",ini:"2026-06-04",fin:"2026-06-04",estado:"Finalizado",pctInicial:100},
+  {n:101,eq:"Ramal Bombas Vacío",tema:"Varillado de líneas de anillo líquido 385-386",planta:"LURGI",tipo:"Mecánico",tec:"J.T. / N.C.",ot:"OT 4434",ini:"2026-06-04",fin:"2026-06-04",estado:"Finalizado",pctInicial:100},
+  {n:102,eq:"Bombas Vacío Lobulares",tema:"Mantención de motores de bombas de vacío (Adicional)",planta:"LURGI",tipo:"Mecánico",tec:"Gabriel E. / Nicolas B.",ot:"OT 4278",ini:"2026-06-04",fin:"2026-06-04",estado:"Pendiente",pctInicial:0}
+]!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gantt — Mantención Anual Lurgi 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0f1117;--bg2:#161b27;--bg3:#1e2535;--bg4:#252d40;
+  --border:#2a3348;--border2:#354060;
+  --text:#e8edf5;--text2:#8a9bbf;--text3:#4a5878;
+  --blue:#3b82f6;--blue-dim:#1e3a6e;
+  --green:#22c55e;--green-dim:#14532d;
+  --amber:#f59e0b;--amber-dim:#78350f;
+  --red:#ef4444;--red-dim:#7f1d1d;
+  --purple:#a78bfa;--purple-dim:#3b1f8c;
+  --radius:6px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'IBM Plex Sans',sans-serif;background:var(--bg);color:var(--text);font-size:13px;min-height:100vh}
+
+/* MODAL TOKEN */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:999;display:flex;align-items:center;justify-content:center}
+.modal-box{background:var(--bg2);border:1px solid var(--border2);border-radius:10px;padding:28px 32px;max-width:440px;width:90%}
+.modal-box h2{font-size:15px;font-weight:600;margin-bottom:8px}
+.modal-box p{font-size:12px;color:var(--text2);line-height:1.6;margin-bottom:16px}
+.modal-box input{width:100%;background:var(--bg3);border:1px solid var(--border);color:var(--text);border-radius:var(--radius);padding:8px 10px;font-size:13px;font-family:'IBM Plex Mono',monospace;outline:none;margin-bottom:10px}
+.modal-box input:focus{border-color:var(--blue)}
+.modal-warn{font-size:11px;color:var(--amber);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);border-radius:var(--radius);padding:8px 10px;margin-bottom:16px;line-height:1.5}
+.btn-primary{background:var(--blue);border:none;color:#fff;border-radius:var(--radius);padding:8px 20px;font-size:13px;cursor:pointer;font-family:'IBM Plex Sans',sans-serif;transition:opacity .15s}
+.btn-primary:hover{opacity:.85}
+.btn-ghost{background:none;border:1px solid var(--border2);color:var(--text2);border-radius:var(--radius);padding:8px 16px;font-size:12px;cursor:pointer;font-family:'IBM Plex Sans',sans-serif;margin-right:8px}
+
+/* HEADER */
+header{background:var(--bg2);border-bottom:1px solid var(--border);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;position:sticky;top:0;z-index:100}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-icon{width:30px;height:30px;background:var(--blue);border-radius:var(--radius);display:flex;align-items:center;justify-content:center}
+.logo-icon svg{width:16px;height:16px;fill:none;stroke:#fff;stroke-width:2}
+.logo-text{font-size:14px;font-weight:600}
+.logo-sub{font-size:10px;color:var(--text2);font-family:'IBM Plex Mono',monospace}
+.header-right{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.stats-pills{display:flex;gap:5px;flex-wrap:wrap}
+.pill{font-family:'IBM Plex Mono',monospace;font-size:10px;padding:3px 8px;border-radius:20px;border:1px solid;display:flex;align-items:center;gap:4px;white-space:nowrap}
+.pill-total{border-color:var(--border2);color:var(--text2)}
+.pill-fin{border-color:var(--green);color:var(--green);background:rgba(34,197,94,.08)}
+.pill-prog{border-color:var(--amber);color:var(--amber);background:rgba(245,158,11,.08)}
+.pill-pend{border-color:var(--blue);color:var(--blue);background:rgba(59,130,246,.08)}
+.pill-rech{border-color:var(--red);color:var(--red);background:rgba(239,68,68,.08)}
+.pill-avg{border-color:var(--purple);color:var(--purple);background:rgba(167,139,250,.08)}
+.pill-dot{width:5px;height:5px;border-radius:50%;background:currentColor}
+
+/* SYNC BAR */
+.sync-bar{background:var(--bg3);border-bottom:1px solid var(--border);padding:6px 20px;display:flex;align-items:center;gap:10px;font-size:11px;flex-wrap:wrap}
+.sync-status{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--text3)}
+.sync-status.ok{color:var(--green)}
+.sync-status.err{color:var(--red)}
+.sync-status.loading{color:var(--amber)}
+.btn-sync{background:var(--green-dim);border:1px solid var(--green);color:var(--green);border-radius:var(--radius);padding:4px 12px;font-size:11px;cursor:pointer;font-family:'IBM Plex Sans',sans-serif;transition:all .15s}
+.btn-sync:hover{background:var(--green);color:#000}
+.btn-sync:disabled{opacity:.4;cursor:not-allowed}
+.btn-token{background:none;border:1px solid var(--border2);color:var(--text2);border-radius:var(--radius);padding:4px 10px;font-size:10px;cursor:pointer;font-family:'IBM Plex Sans',sans-serif}
+.btn-token:hover{border-color:var(--amber);color:var(--amber)}
+
+/* TOOLBAR */
+.toolbar{background:var(--bg2);border-bottom:1px solid var(--border);padding:8px 20px;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.toolbar select,.toolbar input[type=text]{background:var(--bg3);border:1px solid var(--border);color:var(--text);border-radius:var(--radius);padding:4px 8px;font-size:11px;font-family:'IBM Plex Sans',sans-serif;height:28px;outline:none;transition:border-color .15s}
+.toolbar select:focus,.toolbar input:focus{border-color:var(--blue)}
+.toolbar input[type=text]{flex:1;min-width:160px}
+.toolbar label{font-size:10px;color:var(--text2);margin-right:-2px}
+
+/* LEGEND */
+.legend-bar{background:var(--bg3);border-bottom:1px solid var(--border);padding:5px 20px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.leg-item{display:flex;align-items:center;gap:4px;font-size:10px;color:var(--text2)}
+.leg-dot{width:10px;height:7px;border-radius:2px}
+.leg-today{width:2px;height:11px;background:var(--red);border-radius:1px}
+.leg-sep{flex:1}
+.leg-hint{font-size:9px;color:var(--text3);font-family:'IBM Plex Mono',monospace}
+
+/* TABLE */
+.main{padding:0 0 40px}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:1100px}
+thead th{background:var(--bg3);color:var(--text2);font-weight:500;padding:6px 8px;text-align:left;border-bottom:1px solid var(--border);font-size:10px;letter-spacing:.4px;text-transform:uppercase;white-space:nowrap;position:sticky;top:0;z-index:5}
+thead th.th-num{position:sticky;left:0;z-index:6;background:var(--bg3);width:32px}
+tbody tr{border-bottom:1px solid var(--border)}
+tbody tr:hover td{background:var(--bg3)}
+tbody tr:last-child{border-bottom:none}
+td{padding:5px 8px;vertical-align:middle;color:var(--text);transition:background .1s}
+td.td-num{position:sticky;left:0;background:var(--bg2);z-index:2;font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--text3);width:32px;text-align:center}
+tbody tr:hover td.td-num{background:var(--bg3)}
+.eq-cell{min-width:110px;max-width:130px}
+.eq-name{font-weight:500;font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:125px}
+.eq-planta{font-size:9px;color:var(--text3);font-family:'IBM Plex Mono',monospace;margin-top:1px}
+.tema-cell{min-width:220px;max-width:260px;font-size:11px;color:var(--text2)}
+.tema-txt{white-space:normal;line-height:1.4;word-break:break-word}
+.date-cell{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--text2);white-space:nowrap;min-width:56px}
+.tec-cell{min-width:90px;max-width:110px;font-size:10px;color:var(--text2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tipo-cell{min-width:80px;font-size:9px;color:var(--text3)}
+.badge{display:inline-block;font-size:9px;padding:2px 6px;border-radius:20px;font-family:'IBM Plex Mono',monospace;border:1px solid;white-space:nowrap}
+.b-pend{border-color:var(--blue);color:var(--blue);background:var(--blue-dim)}
+.b-prog{border-color:var(--amber);color:var(--amber);background:var(--amber-dim)}
+.b-fin{border-color:var(--green);color:var(--green);background:var(--green-dim)}
+.b-rech{border-color:var(--red);color:var(--red);background:var(--red-dim)}
+.pct-cell{min-width:105px}
+.pct-wrap{display:flex;align-items:center;gap:4px}
+.pct-input{width:44px;background:var(--bg3);border:1px solid var(--border);color:var(--text);border-radius:var(--radius);padding:2px 4px;font-size:11px;font-family:'IBM Plex Mono',monospace;text-align:center;outline:none;transition:border-color .15s}
+.pct-input:focus{border-color:var(--blue)}
+.btn-fin{background:none;border:1px solid var(--border2);color:var(--text2);border-radius:var(--radius);padding:2px 6px;font-size:10px;cursor:pointer;transition:all .15s}
+.btn-fin:hover{border-color:var(--green);color:var(--green);background:var(--green-dim)}
+.pct-bar-mini{height:2px;border-radius:2px;background:var(--bg4);margin-top:3px;overflow:hidden}
+.pct-bar-fill{height:100%;border-radius:2px;transition:width .3s}
+.bar-col{min-width:300px}
+.bar-track{background:var(--bg4);border-radius:3px;height:14px;position:relative;overflow:visible}
+.bar{height:14px;border-radius:3px;position:absolute;min-width:3px;display:flex;align-items:center;overflow:hidden}
+.bar:hover{opacity:.8}
+.bar-label{font-size:8px;color:rgba(255,255,255,.9);padding:0 3px;white-space:nowrap;overflow:hidden;font-family:'IBM Plex Mono',monospace}
+.today-line{position:absolute;top:-4px;bottom:-4px;width:1.5px;background:var(--red);z-index:3;pointer-events:none}
+.today-label{position:absolute;top:-13px;left:50%;transform:translateX(-50%);font-size:7px;color:var(--red);font-family:'IBM Plex Mono',monospace;white-space:nowrap;background:var(--bg);padding:0 2px;border-radius:2px}
+.no-date{font-size:9px;color:var(--text3);font-family:'IBM Plex Mono',monospace}
+.date-header-row th{background:var(--bg);font-size:8px;text-align:center;padding:2px 0;border-bottom:1px solid var(--border);color:var(--text3);font-family:'IBM Plex Mono',monospace;letter-spacing:0;text-transform:none}
+.date-header-row th.is-today{color:var(--red)!important;font-weight:600}
+.date-header-row th.is-weekend{opacity:.5}
+.empty-row td{text-align:center;padding:40px;color:var(--text3);font-style:italic}
+
+/* FOOTER */
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:10px 20px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.footer-text{font-size:10px;color:var(--text3);font-family:'IBM Plex Mono',monospace}
+.btn-export{margin-left:auto;background:var(--blue-dim);border:1px solid var(--blue);color:var(--blue);border-radius:var(--radius);padding:5px 12px;font-size:11px;cursor:pointer;font-family:'IBM Plex Sans',sans-serif;transition:all .15s}
+.btn-export:hover{background:var(--blue);color:#fff}
+.btn-reset{background:none;border:1px solid var(--border2);color:var(--text2);border-radius:var(--radius);padding:5px 12px;font-size:11px;cursor:pointer;font-family:'IBM Plex Sans',sans-serif;transition:all .15s}
+.btn-reset:hover{border-color:var(--red);color:var(--red)}
+</style>
+</head>
+<body>
+
+<!-- MODAL TOKEN -->
+<div class="modal-overlay" id="modalToken" style="display:none">
+  <div class="modal-box">
+    <h2>🔑 Token de administrador</h2>
+    <p>Pega tu GitHub Personal Access Token para poder guardar cambios. Este token se almacena <strong>solo en tu navegador</strong> y nunca se sube a ningún servidor.</p>
+    <div class="modal-warn">⚠️ No compartas este token con nadie. Solo el administrador necesita ingresarlo.</div>
+    <input type="password" id="tokenInput" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" autocomplete="off">
+    <div style="display:flex;justify-content:flex-end;gap:8px;margin-top:8px">
+      <button class="btn-ghost" onclick="closeModal()">Cancelar</button>
+      <button class="btn-primary" onclick="saveToken()">Guardar token</button>
+    </div>
+  </div>
+</div>
+
+<header>
+  <div class="logo">
+    <div class="logo-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="2" rx="1"/><rect x="3" y="9" width="12" height="2" rx="1"/><rect x="3" y="14" width="15" height="2" rx="1"/><rect x="3" y="19" width="9" height="2" rx="1"/></svg></div>
+    <div><div class="logo-text">Mantención Anual Lurgi 2026</div><div class="logo-sub">github.com/JJRC525/gantt-lurgi-2026 · Inicio: 01-06-2026</div></div>
+  </div>
+  <div class="stats-pills" id="statsRow"></div>
+</header>
+
+<div class="sync-bar">
+  <span id="syncStatus" class="sync-status">⟳ Cargando datos desde GitHub...</span>
+  <button class="btn-sync" id="btnSync" onclick="pushToGitHub()" disabled>⬆ Guardar en GitHub</button>
+  <button class="btn-token" onclick="openModal()">🔑 Token admin</button>
+  <span style="font-size:10px;color:var(--text3);margin-left:auto">Última sync: <span id="lastSync">—</span></span>
+</div>
+
+<div class="toolbar">
+  <label>Estado</label>
+  <select id="filtroEstado">
+    <option value="">Todos</option>
+    <option value="Pendiente">Pendiente</option>
+    <option value="En progreso">En progreso</option>
+    <option value="Finalizado">Finalizado</option>
+    <option value="Rechazado">Rechazado</option>
+  </select>
+  <label>Planta</label>
+  <select id="filtroPlanta">
+    <option value="">Todas</option>
+    <option value="LURGI">LURGI</option>
+    <option value="WINTER">WINTER</option>
+    <option value="REFINERÍA">REFINERÍA</option>
+    <option value="CALDERA">CALDERA</option>
+  </select>
+  <label>Tipo</label>
+  <select id="filtroTipo">
+    <option value="">Todos</option>
+    <option value="Eléctrico">Eléctrico</option>
+    <option value="Mecánico">Mecánico</option>
+    <option value="Instrumentación">Instrumentación</option>
+    <option value="Proyecto">Proyecto</option>
+    <option value="Obra Civil">Obra Civil</option>
+    <option value="Soldadura">Soldadura</option>
+    <option value="Producción">Producción</option>
+    <option value="Climatización">Climatización</option>
+    <option value="Aislación">Aislación</option>
+    <option value="Sistema vapor">Sistema vapor</option>
+  </select>
+  <input type="text" id="buscar" placeholder="Buscar equipo, técnico o descripción...">
+</div>
+
+<div class="legend-bar">
+  <div class="leg-item"><div class="leg-dot" style="background:var(--blue)"></div>Pendiente</div>
+  <div class="leg-item"><div class="leg-dot" style="background:var(--amber)"></div>En progreso</div>
+  <div class="leg-item"><div class="leg-dot" style="background:var(--green)"></div>Finalizado</div>
+  <div class="leg-item"><div class="leg-dot" style="background:var(--red)"></div>Rechazado</div>
+  <div class="leg-item"><div class="leg-today"></div>Hoy (01/06)</div>
+  <div class="leg-sep"></div>
+  <div class="leg-hint">Edita % · ✓ finaliza · Admin guarda con ⬆ Guardar en GitHub · Equipo ve cambios al recargar</div>
+</div>
+
+<div class="main">
+  <div class="table-wrap">
+    <table id="gantt"><thead id="thead"></thead><tbody id="tbody"></tbody></table>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-text" id="footerCount">— actividades</div>
+  <button class="btn-export" onclick="exportCSV()">⬇ Exportar CSV</button>
+  <button class="btn-reset" onclick="resetProgress()">↺ Reiniciar avance</button>
+</footer>
+
+<script>
+// ── CONFIGURACIÓN ──────────────────────────────────────────────────────────
+const REPO_OWNER = "JJRC525";
+const REPO_NAME  = "gantt-lurgi-2026";
+const DATA_FILE  = "data.json";
+const BRANCH     = "main";
+const TOKEN_KEY  = "gh_admin_token_lurgi";
+const TODAY      = (() => { const d = new Date(); return new Date(d.getFullYear(), d.getMonth(), d.getDate()); })(); // fecha real del sistema
+// ──────────────────────────────────────────────────────────────────────────
+
+const TASKS_RAW = [
+  {n:1,eq:"Insumos varios",tema:"Insumos varios para mantención LURGI",planta:"LURGI",tipo:"Administrativo",tec:"C.Ceballos/S.Manzo/D.C.",ot:"",ini:null,fin:null,estado:"Pendiente",pctInicial:0},
+  {n:2,eq:"Lavado Desodorizador",tema:"Instalación cañería y conexión bomba eléctricamente. Mantención preventiva bomba.",planta:"LURGI",tipo:"Eléctrico",tec:"P.Campo / Elec.Turno",ot:"OT 4277",ini:"2026-06-01",fin:"2026-06-01",estado:"Finalizado",pctInicial:100},
   {n:3,eq:"Lavado Desodorizador",tema:"Lavado de Equipo (Producción)",planta:"LURGI",tipo:"Producción",tec:"Producción",ot:"",ini:"2026-06-01",fin:"2026-06-03",estado:"Pendiente",pctInicial:50},
   {n:"3b",eq:"Bombas / Motores",tema:"Instalación de etiqueta de equipos para desmontaje y montaje",planta:"LURGI",tipo:"Mecánico",tec:"P.Campo",ot:"OT 4158",ini:"2026-05-22",fin:"2026-05-22",estado:"Finalizado",pctInicial:100},
   {n:4,eq:"Bombas / Motores",tema:"Desmontaje de Motores y Bombas (Lavado por Servicio)",planta:"LURGI",tipo:"Eléctrico/Mecánico",tec:"G.E.-N.B.+2 / A.Ewert",ot:"OT 4278",ini:"2026-06-01",fin:"2026-06-04",estado:"Pendiente",pctInicial:50},
