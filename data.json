@@ -11,8 +11,13 @@
   },
   {
     "n": 3,
-    "pct": 50,
-    "estado": "Pendiente"
+    "pct": 100,
+    "estado": "Finalizado"
+  },
+  {
+    "n": "3b",
+    "pct": 100,
+    "estado": "Finalizado"
   },
   {
     "n": 4,
@@ -421,6 +426,66 @@
   },
   {
     "n": 85,
+    "pct": 0,
+    "estado": "Pendiente"
+  },
+  {
+    "n": 86,
+    "pct": 100,
+    "estado": "Finalizado"
+  },
+  {
+    "n": 87,
+    "pct": 30,
+    "estado": "Pendiente"
+  },
+  {
+    "n": 88,
+    "pct": 0,
+    "estado": "Pendiente"
+  },
+  {
+    "n": 89,
+    "pct": 100,
+    "estado": "Finalizado"
+  },
+  {
+    "n": 90,
+    "pct": 100,
+    "estado": "Finalizado"
+  },
+  {
+    "n": 91,
+    "pct": 0,
+    "estado": "Pendiente"
+  },
+  {
+    "n": 92,
+    "pct": 0,
+    "estado": "Pendiente"
+  },
+  {
+    "n": 93,
+    "pct": 0,
+    "estado": "Pendiente"
+  },
+  {
+    "n": 94,
+    "pct": 100,
+    "estado": "Finalizado"
+  },
+  {
+    "n": 95,
+    "pct": 0,
+    "estado": "Pendiente"
+  },
+  {
+    "n": 96,
+    "pct": 0,
+    "estado": "Pendiente"
+  },
+  {
+    "n": 97,
     "pct": 0,
     "estado": "Pendiente"
   }
